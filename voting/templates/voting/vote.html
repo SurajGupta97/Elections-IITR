@@ -1,6 +1,8 @@
 <h1>{{position}}</h1>
 <form method='POST'>
+{% csrf_token %}
 {% for candidate in candidates %}
-<input type='radio' name='1' value={{candidate}}>{{candidate}}
+<input type='radio' name='vote' value={{candidate}}>{{candidate}}
 {% endfor %}
+<input type='Submit' value="Vote">
 </form>
