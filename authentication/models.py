@@ -21,6 +21,8 @@ class User(models.Model):
 
 	en_no= models.IntegerField()
 
-	post= models.IntegerField()
+	post= models.IntegerField(default=0)
 
 # Create your models here.
+#Pending name
+#num_votes

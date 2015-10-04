@@ -7,3 +7,6 @@ class Votes(models.Model):
 	vote2 = models.BooleanField(default = False)
 	vote3 = models.BooleanField(default = False)
 	vote4 = models.BooleanField(default = False)
+
+class Positions(models.Model):
+	position = models.CharField(max_length = 100)

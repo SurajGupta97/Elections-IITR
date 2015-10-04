@@ -2,7 +2,7 @@
 <form method='POST'>
 {% csrf_token %}
 {% for candidate in candidates %}
-<input type='radio' name='vote' value={{candidate}}>{{candidate}}
+<input type='radio' name='vote' value={{candidate.id}}>{{candidate.user_name}}
 {% endfor %}
 <input type='Submit' value="Vote">
 </form>
