@@ -1,3 +1,9 @@
 from django.db import models
+from django.contrib.auth.models import User
 
-# Create your models here.
+class Votes(models.Model):
+	user = models.OneToOneField(User)
+	vote1 = models.BooleanField(default = False)
+	vote2 = models.BooleanField(default = False)
+	vote3 = models.BooleanField(default = False)
+	vote4 = models.BooleanField(default = False)
