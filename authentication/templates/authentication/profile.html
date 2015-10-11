@@ -1,0 +1,70 @@
+<html>
+<head>
+	<title>
+		PROFILE PAGE
+	</title>
+</head>
+<body>
+
+	<header>
+		<div id="head">
+		<h1>Welcome to Election's IITR</h1>
+		</div>
+
+		<div id="user">
+
+			<div id="username">
+			<b id="usernameb">Welcome,<br/>
+			{{ request.user.username }}
+			</b>
+
+			<div id="settings">
+        	<div class="wrapper">
+            	<div class="content">
+               	     <a href="../logout"><li>Log Out</li></a>
+            	</div>
+
+        	</div>
+    		</div>
+
+	    </div>
+	</header>
+
+
+	<div id="content">
+
+		<div id="title">
+			<h3>WELCOME TO YOUR PROFILE PAGE</h3>
+		</div>
+		
+		<div id="notice">
+			{% if messages %}
+				<ul class="messages">
+			    	    {% for message in messages %}
+			        	        <p {% if message.tags %} class="{{ message.tags }}"{% endif %} >
+			            	            {{ message }}
+			                	</p>
+			        	{% endfor %}
+				</ul>
+			{% endif %}
+		</div>
+
+		<div id="details">
+
+		<b>Name : </b>{{ request.user.first_name }} {{ request.user.last_name }}
+		<BR/>
+		<b>Branch : </b>{{ profile.branch }}
+		<BR/>
+		<b>Year : </b>{{ profile.year }}
+		<BR/>
+		<b>Enrollment No. : </b>{{ profile.en_no}}
+		<br/>
+		<b>Gender : </b>{{ profile.gender }}
+		<br/>
+		<b>Birthday : </b>{{ profile.dob }}
+		<BR/>
+
+		</div>
+	</div>
+</body>
+</html>

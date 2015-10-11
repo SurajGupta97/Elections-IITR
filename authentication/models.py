@@ -1,8 +1,9 @@
 from django.db import models
+from django.contrib.auth.models import User
 
-class User(models.Model):
-	user_name= models.CharField(max_length=100)
-	password= models.CharField(max_length=100)
+class UserDetails(models.Model):
+	user=models.OneToOneField(User)
+	
 	BRANCH=(
 		('CS','Computer Science'),
 		('EE','Electrical Engineering'),
@@ -19,9 +20,15 @@ class User(models.Model):
 	)
 	year= models.IntegerField(choices=YEAR,default=1)
 
-	en_no= models.IntegerField()
+	GENDER=(
+		('Male','Male'),
+		('Female','Female'),
+	)
+	gender = models.CharField(max_length=6,blank=False,choices=GENDER,default='Male')
 
-	post= models.IntegerField(default=0)
+	dob = models.DateField()
+
+	en_no= models.IntegerField()
 
 # Create your models here.
 #Pending name

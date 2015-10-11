@@ -1,0 +1,109 @@
+<html>
+<head>
+	<title>
+		Profile completion
+	</title>
+</head>
+<body>
+
+	<header>
+		<div id="head">
+		<h1>Welcome to Election's IITR</h1>
+		</div>
+
+		<div id="user">
+
+			<div id="username">
+			<b id="usernameb">Welcome,<br/>
+			{{ request.user.username }}
+			</b>
+
+			<div id="settings">
+        	<div class="wrapper">
+            	<div class="content">
+               	     <a href="../logout"><li>Log Out</li></a>
+            	</div>
+        	</div>
+    		</div>
+
+	    </div>
+	</header>
+
+	<div id="content">
+		
+		<div id="title">
+			<h3>COMPLETE YOUR PROFILE</h3>
+		</div>
+
+		<div id="comp_profile">
+		
+		 	<form action="./" method="POST">
+			{% csrf_token %}
+
+		 	<table>
+			
+			<tr><td>
+			Enrollment No. :
+			</td><td id="input">
+			{{ form.en_no }}
+			<span id="req"> *</span><br>
+			</td><td>
+			{{ form.en_no.error }}
+			</td></tr>
+
+			<tr><td>
+			Branch :
+			</td><td id="input">
+			{{ form.branch }}
+			<span id="req"> *</span><br>
+			</td><td>
+			{{ form.branch.error }}
+			</td></tr>
+
+			<tr><td>
+			Year :
+			</td><td id="input">
+			{{ form.year }}
+			<span id="req"> *</span><br>
+			</td><td>
+			{{ form.year.error }}
+			</td></tr>
+
+			<tr><td>
+			Gender :
+			</td><td>
+			{{ form.gender }}
+			</td><td>
+			{{ form.gender.error }}
+			</td></tr>
+
+			<tr><td>
+			Date of Birth :
+			</td><td id="input">
+			{{ form.dob }}
+			<span id="req"> *</span><br>
+			</td><td>
+			{{ form.dob.error }}
+			</td></tr>
+
+			<tr>
+				<td >
+				<button type="reset" value="Reset" >
+				RESET
+				</button>		
+				</td>
+
+				<td style="margin-left:50%;">
+				<button type="submit" >
+				SAVE
+				</button>
+				</td>
+			</tr>
+
+			</table>
+			</form>
+		</div>
+	</div>
+
+</body>
+</html>

@@ -1,0 +1,137 @@
+<html>
+<head>
+
+<titlt>
+	Welcome.
+</title>
+
+</head>
+
+<body>
+
+<header>
+		<div id="head">
+		<h1>Welcome to Election's IITR</h1>
+		</div>
+
+</header>
+
+<br/>
+
+<div>
+{% if messages %}
+	{% for message in messages %}
+		<p {% if message.tags %} class="{{ message.tags }}"{% endif %} >
+			{{ message }}
+		</p>
+		
+	{% endfor %}
+{% endif %}
+</div>
+<br/>
+
+
+<div>
+<form action="../profile/" method="POST">
+{% csrf_token %}
+
+<table>
+
+<tr><td colspan="2">
+ALREADY REGISTERED, LOGIN HERE
+</td></tr>
+
+<tr><td>
+Username
+</td><td>
+<input type=text name='username' ></input>
+</td></tr>
+
+<tr><td>
+Password
+</td><td> 
+<input type=password name='password' ></input>
+</td></tr>
+
+<tr><td colspan="2">
+<button type="submit">LOG IN</button>
+</td></tr>
+
+</table>
+
+</form>
+</div>
+
+
+
+
+<div >
+
+<form action='./' method="POST">
+
+{% csrf_token %}
+
+<table>
+
+<tr>
+<td colspan="2">
+REGISTER NOW
+</td>
+</tr>
+
+<tr><td>
+First Name
+</td><td>
+{{ form.first_name }}
+</td><td>
+{{ form.first_name.errors }}
+</td></tr>
+
+<tr><td>
+Last Name
+</td><td>
+{{ form.last_name }}
+</td><td>
+{{ form.last_name.errors }}
+</td></tr>
+
+<tr><td>
+Username
+</td><td>
+{{ form.username }}
+</td><td>
+{{ form.username.errors }}
+</td></tr>
+
+<tr><td>
+Password
+</td><td>
+{{ form.password }}
+</td><td>
+{{ form.password.errors }}
+</td></tr>
+
+<tr><td>
+E-mail
+</td><td>
+{{ form.email }}
+</td><td>
+{{ form.email.errors }}
+</td></tr>
+
+<tr><td colspan="2">
+<button type="submit">
+	SIGN UP
+</button>
+</td>
+</tr>
+</table>
+
+</div>
+
+</form>
+
+</div>
+
+</body>
+<html>
