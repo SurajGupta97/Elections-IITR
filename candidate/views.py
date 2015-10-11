@@ -10,24 +10,20 @@ def index(request):
 	if request.method=="POST":
 		form = CandidateForm(request.POST , request.FILES)
 		if form.is_valid():
-			try:
-				m = Candidate.objects.get(user = request.user)
-			print form.cleaned_data["image"]
-			print form.cleaned_data["manifesto"]
 			try:	
 				m = Candidate.objects.create(user = request.user, post = int(form.cleaned_data['post']))
-				print "asd"
 				m.image = form.cleaned_data["image"]
 				m.manifesto = form.cleaned_data["manifesto"]
 				m.save()
 				messages.success(request , "Your nomination was successful! Best of luck for the upcoming elections!")
-				print "yahan bhi!"
 				return HttpResponseRedirect('/')
 			except:
-				print form
-				print "Main yahan!"
-				return HttpResponseRedirect('.')
+				#User already has submitted one nomination
+				messages.success(request , "You have already submitted one nomination")
+				return HttpResponseRedirect('/')
 	else:
-		print request.user.id
+		if Candidate.objects.filter(user = request.user).exists():
+			messages.success(request , "You have already submitted one nomination")
+			return HttpResponseRedirect('/')
 		form = CandidateForm()
 		return render(request , "candidate/index.html", {'form':form})

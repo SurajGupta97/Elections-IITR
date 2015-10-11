@@ -9,6 +9,7 @@ def index(request):
 
 def details(request , vote_id):
 	column = 'vote' + `int(vote_id)`
+	url = '/vote/' + `int(vote_id)+1`
 	if request.method=="GET":
 		#application logic to get the standing position and the avaiable candidates
 		#default
@@ -16,7 +17,7 @@ def details(request , vote_id):
 			vote = Votes.objects.get(user_id = request.user.id)
 			val = getattr(vote, column)
 			if val is True:
-				return render(request , 'voting/vote.html', {"cond" : 1})
+				return HttpResponseRedirect(url)
 
 		position = Positions.objects.get(pk=int(vote_id)).position
 		candidates = Candidate.objects.all().filter(post=int(vote_id))
@@ -29,9 +30,9 @@ def details(request , vote_id):
 		print column
 		candidate_voted = int(request.POST['vote'])
 		candidate = Candidate.objects.get(user_id = candidate_voted)
-		v = candidate.vote
+		v = candidate.votes
 		v+=1
-		candidate.vote = v
+		candidate.votes = v
 		print v
 		candidate.save()
 		try:
@@ -42,5 +43,4 @@ def details(request , vote_id):
 			vote = Votes(user_id=request.user.id)
 			setattr(vote , column, True)
 			vote.save()
-		url = '/vote/' + `int(vote_id)+1`
 		return HttpResponseRedirect(url)
