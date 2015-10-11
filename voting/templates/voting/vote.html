@@ -1,8 +1,12 @@
-<h1>{{position}}</h1>
-<form method='POST'>
-{% csrf_token %}
-{% for candidate in candidates %}
-<input type='radio' name='vote' value={{candidate.id}}>{{candidate.user_name}}
-{% endfor %}
-<input type='Submit' value="Vote">
-</form>
+{% if cond %}
+	<p>You have already voted </p>
+{% else %}	
+	<h1>{{position}}</h1>
+	<form method='POST'>
+	{% csrf_token %}
+	{% for candidate in candidates %}
+	<input type='radio' name='vote' value={{candidate.id}}>{{candidate.get_full_name}}
+	{% endfor %}
+	<input type='Submit' value="Vote">
+	</form>
+{% endif %}

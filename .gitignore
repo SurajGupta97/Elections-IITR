@@ -1,3 +1,7 @@
 *.pyc
 voting/config.cfg
 elections
+*.jpg
+*.JPG
+*.png
+*.PNG
