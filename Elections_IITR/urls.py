@@ -20,5 +20,6 @@ urlpatterns = [
     url(r'^admin/', include(admin.site.urls)),
     url(r'^authentication/', include('authentication.urls')),
     url(r'^candidate/', include('candidate.urls')),
+    url(r'^vote/', include('voting.urls')),
     url(r'^', include('home.urls')),
 ]

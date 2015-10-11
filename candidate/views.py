@@ -13,8 +13,8 @@ def index(request):
 	if request.method=="POST":
 		form = CandidateForm(request.POST , request.FILES)
 		if form.is_valid():
-			print form.cleaned_data["image"]
-			print form.cleaned_data["manifesto"]
+			print(form.cleaned_data["image"])
+			print(form.cleaned_data["manifesto"])
 			try:
 				m = Candidate.objects.get(user = request.user)
 				m.image = form.cleaned_data["image"]
@@ -22,7 +22,6 @@ def index(request):
 				m.save()
 			except:
 				#User already has submitted one nomination
-				print "Main yahan!"
 				return HttpResponseRedirect('/')
 	else:
 		form = CandidateForm()

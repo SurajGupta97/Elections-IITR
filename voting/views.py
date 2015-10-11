@@ -2,6 +2,7 @@ from django.shortcuts import render
 from .models import Votes, Positions
 from authentication.models import User
 from django.http import HttpResponseRedirect
+from candidate.models import Candidate
 
 def index(request):
 	return render(request, 'voting/index.html')
@@ -15,8 +16,8 @@ def details(request , vote_id):
 		context = {'position' : position , 'candidates': candidates}
 		return render(request , 'voting/vote.html' , context)
 	elif request.method=="POST":
-		column = 'vote' + `int(vote_id)`
-		print column
+		column = 'vote' + str(vote_id)
+		print(column)
 		try:
 			candidate_voted = int(request.POST['vote'])
 			try:
