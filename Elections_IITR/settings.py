@@ -38,9 +38,9 @@ INSTALLED_APPS = (
     'django.contrib.messages',
     'django.contrib.staticfiles',
     'voting',
-    'manifestos',
+    'candidate',
     'authentication',
-    'nominations',
+    'home',
 )
 
 MIDDLEWARE_CLASSES = (
