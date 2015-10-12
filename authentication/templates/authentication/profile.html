@@ -15,42 +15,34 @@
 </head>
 <body>
 
-	<header>
-		
-		<div class="navbar-header">
-	        <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-collapse">
-	        <span class="icon-bar"></span>
-	        <span class="icon-bar"></span>
-	        <span class="icon-bar"></span>
-	      </button>
-	      <a class="navbar-brand" href="./">Home</a>
+	<div class="navbar navbar-default navbar-fixed-top">
+        <div class="container">
+            <div class="navbar-header">
+                <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-collapse">
+	            <span class="icon-bar"></span>
+	            <span class="icon-bar"></span>
+	            <span class="icon-bar"></span>
+	          </button>
+                <a class="navbar-brand" href="./">
+                    <b>ELECTION'S IITR</b>
+                </a>
+            </div>
+            <div class="navbar-collapse collapse navbar-right scroll-me">
+                <ul class="nav navbar-nav ">
+                	<li><a href="./">Home</a></li>
+                    <li><a href="../logout">Log Out</a></li>
+            		<li><a href="/vote">Vote</a></li>
+            		<li><a href="/candidate">Stand in elections!</a></li>
+                </ul>
+            </div>
+
+        </div>
     </div>
 
-    	<div class="collapse navbar-collapse">
-	      <ul class="nav navbar-nav">
-	        <li><a href="../logout">Log Out</a></li>
-	        <li><a href="/vote">Vote</a></li>
-	        <li><a href="/candidate">Stand in elections!</a></li>
-	      </ul>
-	      <div class="nav navbar-nav navbar-right" style="margin-right:5px;">
-	      	<b id="usernameb">Welcome, {{ request.user.username }}
-			</b>
-		</div>
 
-    </div><!--/.nav-collapse -->
-
-		
-	<div  class="page-header" >
-		<center><h1>Welcome to Election's IITR</h1></center>
-		
-		
-	</div>
-</header>
 	<div style="margin-left:5px;">
 
-		<div id="title">
-			<h3>YOUR PROFILE</h3>
-		</div>
+		
 		
 		<div id="notice">
 			{% if messages %}
@@ -65,7 +57,10 @@
 		</div>
 
 		<div id="details">
-
+		</br>
+		</br>
+		</br>
+			<h3>YOUR PROFILE </h3>
 		<b>Name : </b>{{ request.user.first_name }} {{ request.user.last_name }}
 		<BR/>
 		<b>Branch : </b>{{ profile.branch }}
