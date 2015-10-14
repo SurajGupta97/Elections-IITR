@@ -20,7 +20,7 @@
 
 <header>
 		<div  class="page-header">
-			<center><h1>Welcome to Election's IITR</h1></center>
+			<center><h1>Elections@IITR</h1></center>
 		
 		</div>
 
@@ -41,22 +41,20 @@
 <br/>
 
 
-<div style="margin-left:15px;">
-<form action="../profile/" method="POST">
+<div style="margin-left:15px;width:50%;float=left;">
+<form action="../profile/" method="POST" >
 {% csrf_token %}
 
-<table>
+<table class="table">
 
 <tr><td colspan="2">
 ALREADY REGISTERED, LOGIN HERE
 </td></tr>
-
 <tr><td>
 Username
 </td><td>
 <input type=text name='username' ></input>
 </td></tr>
-
 <tr><td>
 Password
 </td><td> 
@@ -64,7 +62,7 @@ Password
 </td></tr>
 
 <tr><td colspan="2">
-<button type="submit">LOG IN</button>
+<button type="submit" class="btn btn-primary">LOG IN</button>
 </td></tr>
 
 </table>
@@ -75,13 +73,13 @@ Password
 
 
 
-<div style="margin-left:15px;">
+<div style="margin-left:15px;width:50%;float=right;">
 
 <form action='./' method="POST">
 
 {% csrf_token %}
 
-<table>
+<table class="table">
 
 <tr>
 <td colspan="2">
@@ -130,7 +128,7 @@ E-mail
 </td></tr>
 
 <tr><td colspan="2">
-<button type="submit">
+<button type="submit" class="btn btn-primary">
 	SIGN UP
 </button>
 </td>
