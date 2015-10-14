@@ -2,12 +2,27 @@ from django.shortcuts import render
 from .models import Votes, Positions
 from authentication.models import User
 from django.http import HttpResponseRedirect
+from django.contrib import messages
 from candidate.models import Candidate
+from ConfigParser import ConfigParser
+import os
 
 def index(request):
+	config = ConfigParser()
+	config.read(os.path.join(os.path.abspath(os.path.dirname(__file__)) , 'config.cfg'))
+	start = int(config.get("elections" , "start"))
+	if start==0:
+		messages.success(request , "The elections have not yet started! :p")
+		return HttpResponseRedirect('/')
 	return render(request, 'voting/index.html')
 
 def details(request , vote_id):
+	config = ConfigParser()
+	config.read(os.path.join(os.path.abspath(os.path.dirname(__file__)) , 'config.cfg'))
+	start = int(config.get("elections" , "start"))
+	if start==0:
+		messages.success(request , "The elections have not yet started! :p")
+		return HttpResponseRedirect('/')
 	column = 'vote' + `int(vote_id)`
 	url = '/vote/' + `int(vote_id)+1`
 	if request.method=="GET":
@@ -27,13 +42,11 @@ def details(request , vote_id):
 		context = {'position' : position , 'candidates': users}
 		return render(request , 'voting/vote.html' , context)
 	elif request.method=="POST":
-		print column
 		candidate_voted = int(request.POST['vote'])
 		candidate = Candidate.objects.get(user_id = candidate_voted)
 		v = candidate.votes
 		v+=1
 		candidate.votes = v
-		print v
 		candidate.save()
 		try:
 			vote = Votes.objects.get(user_id = request.user.id)
