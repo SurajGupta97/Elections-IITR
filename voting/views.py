@@ -4,7 +4,10 @@ from authentication.models import User
 from django.http import HttpResponseRedirect
 from django.contrib import messages
 from candidate.models import Candidate
-from ConfigParser import ConfigParser
+try:
+	from ConfigParser import ConfigParser
+except:
+	from configparser import ConfigParser
 import os
 
 def index(request):
