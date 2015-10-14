@@ -23,6 +23,7 @@ def details(request , vote_id):
 	if start==0:
 		messages.success(request , "The elections have not yet started! :p")
 		return HttpResponseRedirect('/')
+
 	column = 'vote' + str(vote_id)
 	url = '/vote/' + str(int(vote_id)+1)
 	if request.method=="GET":
