@@ -1,0 +1,15 @@
+#content::after {
+  content: "";
+  background: url("/static/images/bg.jpg");
+  opacity: 0.5;
+  top: 50px;
+  left: 0;
+  bottom: 0;
+  right: 0;
+  position: absolute;
+  z-index: -1;   
+}
+
+#content
+{
+}

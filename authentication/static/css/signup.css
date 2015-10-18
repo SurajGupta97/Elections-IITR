@@ -1,0 +1,27 @@
+#content
+{
+		
+}
+
+#header
+{
+  padding-top: 5px;
+	height: 50px;
+	background-color: #E0E0E0;
+  padding-bottom: 5px;
+  margin-bottom: 5px;
+}
+
+#content::after {
+  content: "";
+  background: url("/static/images/bg.jpg");
+  opacity: 0.5;
+  top: 50px;
+  left: 0;
+  bottom: 0;
+  right: 0;
+  position: absolute;
+  z-index: -1;   
+}
+
+

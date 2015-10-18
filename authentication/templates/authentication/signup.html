@@ -4,7 +4,7 @@
 	<meta charset="utf-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1">
-
+    <link rel="stylesheet" type="text/css" href="/static/css/signup.css">
 	<link rel="stylesheet" type="text/css" href="/static/css/bootstrap.css">
 	<link rel="stylesheet" type="text/css" href="/static/css/bootstrap-theme.css">
 	<link rel="stylesheet" type="text/css" href="/static/css/bootstrap.min.css">
@@ -13,21 +13,15 @@
 <title>
 	Welcome page
 </title>
-
 </head>
 
 <body>
 
-<header>
-		<div  class="page-header">
-			<center><h1>Elections@IITR</h1></center>
-		
-		</div>
+<div  id="header">
+	<center><h3>Elections@IITR</h3></center>	
+</div>
 
-</header>
-
-<br/>
-
+<div id="content">
 <div>
 {% if messages %}
 	{% for message in messages %}
@@ -41,8 +35,8 @@
 <br/>
 
 
-<div style="margin-left:15px;width:50%;float=left;">
-<form action="../profile/" method="POST" >
+<div style="margin-left:15px;width:45%;float=left;">
+<form action="/authentication/profile/" method="POST" >
 {% csrf_token %}
 
 <table class="table">
@@ -70,10 +64,7 @@ Password
 </form>
 </div>
 
-
-
-
-<div style="margin-left:15px;width:50%;float=right;">
+<div style="margin-left:15px;width:45%;float=right;">
 
 <form action='./' method="POST">
 
@@ -140,6 +131,6 @@ E-mail
 </form>
 
 </div>
-
+</div>
 </body>
 <html>
