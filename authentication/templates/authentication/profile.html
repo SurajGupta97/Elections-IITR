@@ -33,6 +33,7 @@
                     <li><a href="../logout">Log Out</a></li>
             		<li><a href="/vote">Vote</a></li>
             		<li><a href="/candidate">Stand in elections!</a></li>
+            		<li><a href="/vote/results">Results</a></li>
                 </ul>
             </div>
 
@@ -41,22 +42,17 @@
 
 
 	<div  id="content" style="margin-left:5px;">
-		<div id="notice">
-			{% if messages %}
-				<ul class="messages">
-			    	    {% for message in messages %}
-			        	        <p {% if message.tags %} class="{{ message.tags }}"{% endif %} >
-			            	            {{ message }}
-			                	</p>
-			        	{% endfor %}
-				</ul>
-			{% endif %}
-		</div>
-
 		<div id="details">
 		</br>
 		</br>
 		</br>
+				{% if messages %}
+		<ul style="list-style-type:none;">
+		  {% for message in messages %}
+		  <li{% if message.tags %} class="{{ message.tags }}"{% endif %} style="color:red;font-weight:bold;">{{ message }}</li>
+		  {% endfor %}
+		</ul>
+		{% endif %}
 			<h3>YOUR PROFILE </h3>
 		<b>Name : </b>{{ request.user.first_name }} {{ request.user.last_name }}
 		<BR/>

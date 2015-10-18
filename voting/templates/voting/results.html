@@ -4,16 +4,17 @@
 	<meta charset="utf-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1">
-    <link rel="stylesheet" type="text/css" href="/static/css/vote.css">
+    <link rel="stylesheet" type="text/css" href="/static/css/profile.css">
 	<link rel="stylesheet" type="text/css" href="/static/css/bootstrap.css">
 	<link rel="stylesheet" type="text/css" href="/static/css/bootstrap-theme.css">
 	<link rel="stylesheet" type="text/css" href="/static/css/bootstrap.min.css">
 	<link rel="stylesheet" type="text/css" href="/static/css/bootstrap-theme.min.css">
 	<title>
-		VOTING PAGE
+		PROFILE PAGE
 	</title>
 </head>
 <body>
+
 	<div class="navbar navbar-default navbar-fixed-top">
         <div class="container">
             <div class="navbar-header">
@@ -37,34 +38,22 @@
             </div>
 
         </div>
-    </div>
-</br>
-</br>
-</br>
-<div id="content">
-{% if messages %}
-<ul style="list-style-type:none;">
-  {% for message in messages %}
-  <li{% if message.tags %} class="{{ message.tags }}"{% endif %} style="color:red;">{{ message }}</li>
-  {% endfor %}
-</ul>
-{% endif %}
-<center>
-    <div style="margin-left:5px;">
-{% if cond %}
-	<p>You have already voted </p>
-{% else %}	
-	<h1>{{position}}</h1>
-	<form method='POST'>
-	{% csrf_token %}
-	{% for candidate in candidates %}
-	<input type='radio' name='vote' value={{candidate.id}}>{{candidate.get_full_name}}
-	{% endfor %}
-	<input type='Submit' value="Vote">
-	</form>
-{% endif %}
-</div>
-</center>
-</div>
+	</div>
+    	<br />
+    	<br />
+    	<br />
+		<div  id="content" style="margin-left:5px;">
+		
+		<div id="details" style="margin-top:100px;">
+		<h1> The results are out! </h1>
+		<ul style="list-style-type:none;">
+		 {% for candidate, post in cp %}
+		 <li><span style="font-weight:bold;font-size:20px;">{{post.position}}</span> - <span style="font-style:italic;font-size:20px;">{{candidate.get_full_name}}</span></li>
+		{% endfor %}
+		</ul>
+		</div>
+	</div>
+
 </body>
 </html>
+
