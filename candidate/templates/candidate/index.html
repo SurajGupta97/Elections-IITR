@@ -43,43 +43,12 @@
 </br>
 </br>
 <div id="content">
-    <form enctype="multipart/form-data" method="POST">
+    <form action="/candidate/" enctype="multipart/form-data" method="POST">
 
     {% csrf_token %}
     <table class="table">
-        <tr>
-        <td>
-        MANIFESTO
-        </td>
-        <td>{{ form.manifesto }}</td>
-        <td>
-            {{ form.manifesto.error }}
-        </td> 
-        </tr>
-
-
-        <tr>
-        <td>
-        IMAGE
-        </td>
-        <td>{{ form.image }}</td>
-        <td>
-            {{ form.image.error }}
-        </td> 
-        </tr>
-
-        <tr>
-        <td>
-        POST
-        </td>
-        <td>
-        {{ form.post }}
-        </td>
-        <td>
-        {{ form.post.error }}
-        </td>
-        </tr>
-
+    {{ form }}
+       
         <tr>
         <td>
         <input type="submit" value="Submit" class="btn btn-primary">

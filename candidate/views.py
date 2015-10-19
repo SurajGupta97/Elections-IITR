@@ -21,10 +21,8 @@ def index(request):
 	elif start==1:
 		messages.success(request , "Elections have begun!")
 		return HttpResponseRedirect('/authentication/profile')
+	
 	if request.method=="POST":
-		if 'id_image' not in request.POST or 'id_manifesto' not in request.POST or 'id_post' not in request.POST:
-			messages.success(request, "*Some fields were left empty.")
-			return HttpResponseRedirect('.')
 		form = CandidateForm(request.POST , request.FILES)
 		if form.is_valid():
 			try:	
@@ -38,6 +36,9 @@ def index(request):
 				#User already has submitted one nomination
 				messages.success(request , "You have already submitted one nomination")
 				return HttpResponseRedirect('/authentication/profile')
+		else:
+			messages.success(request,"*Wrong information entered")
+			return HttpResponseRedirect('.')
 	else:
 		if Candidate.objects.filter(user = request.user).exists():
 			messages.success(request , "You have already submitted one nomination")
