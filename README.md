@@ -9,4 +9,4 @@ Built as a part of CS291-OOAD project.
 
 ## Contributors
 
-[Punit Dhoot](github.com/pdhoot) && [Suraj Gupta](github.com/SurajGupta97)
+[Punit Dhoot](https://github.com/pdhoot) && [Suraj Gupta](https://github.com/SurajGupta97)
