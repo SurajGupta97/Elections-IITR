@@ -6,6 +6,7 @@
 
 A web application to conduct elections online @ IITR build over Django framework.
 Built as a part of CS291-OOAD project.
+Takes care of the whole process of elections from nominations to results.
 
 ## Contributors
 
